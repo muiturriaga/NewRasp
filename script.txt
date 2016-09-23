@@ -1,0 +1,23 @@
+###OMXPLAYER
+git clone git://github.com/huceke/omxplayer.git
+
+###omxplayer wrapper
+sudo apt-get install python-dbus
+python setup.py install
+
+from omxplayer import OMXPlayer
+from time import sleep
+
+# This will start an `omxplayer` process, this might 
+# fail the first time you run it, currently in the 
+# process of fixing this though.
+player = OMXPlayer('path/to/file.mp4')
+
+# The player will initially be paused
+
+player.play()
+sleep(5)
+player.pause()
+
+# Kill the `omxplayer` process gracefully.
+player.quit()
